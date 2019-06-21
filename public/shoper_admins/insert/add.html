@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://localhost/wstmart_v2.1.1_190220/shop/goods/add.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>卖家中心 - 商淘软件多用户商城系统</title>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="./bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="./layui.css" type="text/css">
+<link rel="stylesheet" href="./font-awesome.min.css" type="text/css">
+<script src="./jquery.min.js.下载"></script>
+    <script type="text/javascript" src="./layer.js.下载"></script><link rel="stylesheet" href="./layer.css" id="layui_layer_skinlayercss" style="">
+
+<link rel="stylesheet" type="text/css" href="./webuploader.css">
+<link rel="stylesheet" type="text/css" href="./batchupload.css">
+<link href="./jquery.validator.css" rel="stylesheet">
+
+<link href="./common.css" rel="stylesheet" type="text/css">
+<script>
+window.conf = {"DOMAIN":"http://localhost/wstmart_v2.1.1_190220","ROOT":"/wstmart_v2.1.1_190220","APP":"/wstmart_v2.1.1_190220","STATIC":"/wstmart_v2.1.1_190220/static","SUFFIX":"html","GOODS_LOGO":"upload/sysconfigs/2016-10/5804802a4b162.png","SHOP_LOGO":"upload/sysconfigs/2016-10/58048008993ed.png","MALL_LOGO":"upload/sysconfigs/2016-10/580480413c986.png","USER_LOGO":"upload/sysconfigs/2016-10/5804800d5841e.png",'GRANT':'',"IS_CRYPT":"","ROUTES":'{"\\think\\addons\\addonscontroller@execute":"addon\/<module>-<action>-<method>","home\/index\/index":"index","home\/goods\/lists":"category-<cat>","home\/goods\/search":"search","home\/goods\/detail":"goods-<goodsId>","home\/brands\/index":"brands","home\/shops\/shopstreet":"street","home\/helpcenter\/view":"service-<id>","home\/news\/view":"news-<id>","home\/news\/nlist":"cats-news-<catId>","home\/users\/login":"login","home\/users\/regist":"register","home\/users\/forgetpass":"forget","home\/users\/forgetpasst":"find-forget","home\/users\/forgetpassf":"success-forget","home\/users\/resetpass":"reset-forget","home\/shops\/index":"shop-<shopId>","home\/shops\/goods":"shopgoods-<shopId>"}',"MAP_KEY":"","__HTTP__":"http://",'RESOURCE_PATH':'/wstmart_v2.1.1_190220',"SMS_VERFY":"1",'TIME_TASK':1,"MESSAGE_BOX":"",MSG_SHOP_GRANT:'message,shoporder24,shoporder55,shoporder45,shoporder25,shoporder54'}
+</script>
+<script language="javascript" type="text/javascript" src="./common.js.下载"></script>
+<link id="layuicss-laydate" rel="stylesheet" href="./laydate.css" media="all"><link id="layuicss-layer" rel="stylesheet" href="./layer(1).css" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="./code.css" media="all"><link href="./default.css" rel="stylesheet"></head>
+<body class="hold-transition skin-blue sidebar-mini" style="">
+<div id="j-loader" style="display: none;"><img src="./ajax-loader.gif"></div>
+
+<style>
+#specsAttrBox .webuploader-container,#specsAttrBox .webuploader-container .webuploader-pick{width:80px;height:27px;line-height:27px;overflow:hidden;}
+#specTby td{padding-bottom:5px;}
+#spec-sale-tby td{padding:2px;}
+.attr-table td{padding:2px;}
+label{font-weight: normal;}
+</style>
+<div id="tab" class="wst-tab-box">
+	<ul class="wst-tab-nav">
+	   <li class="on">商品信息</li>
+	   <li>规格属性</li>
+	   <li>商品相册</li>
+	</ul>
+    <div class="wst-tab-content" style="width:99%;margin-bottom: 10px;border:0px;">
+      <form id="editform" autocomplete="off">
+        <div class="wst-tab-item" style="position: relative;">
+        <input type="hidden" id="goodsId" class="j-ipt" value="0">
+<table class="wst-form">
+  <tbody><tr>
+     <th width="150">商品名称<font color="red">*</font>：</th>
+     <td width="550">
+        <textarea style="height:50px;width:400px" class="j-ipt" id="goodsName" maxlength="150" data-rule="商品名称:required;"></textarea>
+     </td>
+     <td rowspan="6">
+        <div id="goodsImgBox" style="margin-bottom:5px;">
+        <img src="./5804802a4b162.png" id="preview" width="150" height="150">
+        </div>
+        <div id="goodsImgPicker" class="webuploader-container"><div class="webuploader-pick">请上传商品图片</div><div id="rt_rt_1ddpss6rvpp113k71sq1d1t183a1" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 44px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/jpeg,image/png,image/gif"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div><span id="uploadMsg"></span>
+        <input type="hidden" id="goodsImg" class="j-ipt" data-target="#msg_goodsImg" value="" data-rule="商品图片: required;">
+        <span class="msg-box" id="msg_goodsImg"></span>
+     </td>
+  </tr>
+  <tr>
+     <th>商品类型<font color="red">*</font>：</th>
+     <td>
+       <select id="goodsType" class="j-ipt" onchange="changeGoodsType(this.value)">
+         <option value="0" selected="">实物商品</option>
+         <option value="1">虚拟商品</option>
+       </select>
+     </td>
+  </tr>
+  <tr>
+     <th>商品编号<font color="red">*</font>：</th>
+     <td><input type="text" class="j-ipt" id="goodsSn" value="156101601567507" maxlength="20" data-rule="商品编号:required;"></td>
+  </tr>
+  <tr>
+  <th width="150">商品货号<font color="red">*</font>：</th>
+     <td width="300">
+        <input type="text" class="j-ipt" id="productNo" value="156101601567509" maxlength="20" data-rule="商品货号:required;">
+     </td>
+  </tr>
+  <tr>
+     <th>市场价格<font color="red">*</font>：</th>
+     <td><input type="text" class="j-ipt" id="marketPrice" value="0.00" maxlength="10" data-rule="市场价格:required;price" data-rule-price="[/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/, &#39;价格必须大于0&#39;]" onblur="javascript:WST.limitDecimal(this,2)" onkeypress="return WST.isNumberdoteKey(event)" onkeyup="javascript:WST.isChinese(this,1)"></td>
+  </tr>
+  <tr>
+     <th>店铺价格<font color="red">*</font>：</th>
+     <td><input type="text" class="j-ipt" id="shopPrice" value="0.00" maxlength="10" data-rule="店铺价格:required;price" data-rule-price="[/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/, &#39;价格必须大于0&#39;]" onblur="javascript:WST.limitDecimal(this,2)" onkeypress="return WST.isNumberdoteKey(event)" onkeyup="javascript:WST.isChinese(this,1)"></td>
+  </tr>
+  <tr id="goodsStockTr">
+     <th>商品库存<font color="red">*</font>：</th>
+     <td><input type="text" class="j-ipt" id="goodsStock" value="0" maxlength="10" data-rule="商品库存:required;integer[+0]" onkeypress="return WST.isNumberKey(event)" onkeyup="javascript:WST.isChinese(this,1)"></td>
+  </tr>
+  <tr>
+     <th>预警库存<font color="red">*</font>：</th>
+     <td colspan="2"><input type="text" class="j-ipt" id="warnStock" value="0" maxlength="10" data-rule="预警库存:required;integer[+0]" onkeypress="return WST.isNumberKey(event)" onkeyup="javascript:WST.isChinese(this,1)"></td>
+  </tr>
+  <tr>
+     <th>商品单位<font color="red">*</font>：</th>
+     <td colspan="2"><input type="text" class="j-ipt" id="goodsUnit" value="" maxlength="10" data-rule="商品单位:required;"></td>
+  </tr>
+  <tr>
+     <th>SEO关键字：</th>
+     <td colspan="2"><input type="text" class="j-ipt" id="goodsSeoKeywords" maxlength="100" value="" style="width:70%"></td>
+  </tr>
+  <tr>
+     <th>商品促销信息：</th>
+     <td colspan="2"><textarea class="j-ipt" id="goodsTips" maxlength="100" style="width:500px;height:50px"></textarea></td>
+  </tr>
+    <tr>
+     <th>商品状态<font color="red">*</font>：</th>
+     <td colspan="2" class="layui-form">
+        <label><input type="radio" name="isSale" id="isSale-1" class="j-ipt" value="1" checked="" title="上架"><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>上架</span></div></label>
+        <label><input type="radio" name="isSale" id="isSale-0" class="j-ipt" value="0" title="下架"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>下架</span></div></label>
+     </td>
+  </tr>
+  <tr>
+     <th>商品属性：</th>
+     <td colspan="2" class="layui-form">
+	        <input id="isRecom" name="isRecom" lay-skin="primary" class="j-ipt" value="1" type="checkbox" title="推荐"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>推荐</span><i class="layui-icon"></i></div>
+	        <input id="isBest" name="isBest" lay-skin="primary" class="j-ipt" value="1" type="checkbox" title="精品"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>精品</span><i class="layui-icon"></i></div>
+	        <input id="isNew" name="isNew" lay-skin="primary" class="j-ipt" value="1" type="checkbox" title="新品"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>新品</span><i class="layui-icon"></i></div>
+	        <input id="isHot" name="isHot" lay-skin="primary" class="j-ipt" value="1" type="checkbox" title="热销"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>热销</span><i class="layui-icon"></i></div>
+     </td>
+  </tr>
+  <tr>
+     <th>是否包邮：</th>
+     <td colspan="2" class="layui-form">
+        <label><input type="radio" name="isFreeShipping" id="isFreeShipping-1" class="j-ipt" value="1" title="包邮"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>包邮</span></div></label>
+        <label><input type="radio" name="isFreeShipping" id="isFreeShipping-0" class="j-ipt" value="0" checked="" title="不包邮"><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>不包邮</span></div></label>
+     </td>
+  </tr>
+  <tr>
+     <th>商城分类<font color="red">*</font>：</th>
+     <td colspan="2">
+         <select id="cat_0" class="ipt j-goodsCats" level="0" onchange="WST.ITGoodsCats({id:&#39;cat_0&#39;,val:this.value,isRequire:true,className:&#39;j-goodsCats&#39;,afterFunc:&#39;lastGoodsCatCallback&#39;});getBrands(&#39;brandId&#39;,this.value)">
+	      	<option value="">-请选择-</option>
+	      		        <option value="52">休闲食品、进口食品</option>
+	        	        <option value="53">营养保健、调理用品</option>
+	        	        <option value="47">时蔬水果、网上菜场</option>
+	        	        <option value="49">酒水饮料、茶叶冲饮</option>
+	        	        <option value="50">粮油食品、南北干货</option>
+	        	        <option value="51">美容护理、洗浴用品</option>
+	        	        <option value="54">家居家电、厨具卫浴</option>
+	        	        <option value="48">厨卫清洁、纸制用品</option>
+	        	        <option value="334">手机数码、家用电器</option>
+	        	        <option value="55">床上用品、玩具乐器</option>
+	        	        <option value="335">图书音像、电子书籍</option>
+	        	        <option value="56">虚拟服务、优惠票券</option>
+	        	     </select>
+     </td>
+  </tr>
+  <tr>
+     <th>本店分类：</th>
+     <td colspan="2">
+         <select id="shopCatId1" class="j-ipt" onchange="getShopsCats(&#39;shopCatId2&#39;,this.value,&#39;&#39;);">
+            <option value="">-请选择-</option>
+                        <option value="1">生鲜品类</option>
+                        <option value="9">食品饮料</option>
+                        <option value="14">个人护理</option>
+                        <option value="20">清洁用品</option>
+                        <option value="25">母婴用品</option>
+                        <option value="31">手机电器</option>
+                        <option value="36">中外名酒</option>
+                     </select>
+         <select id="shopCatId2" class="j-ipt">
+             <option value="">请选择</option>
+         </select>
+     </td>
+  </tr>
+  <tr>
+     <th>品牌：</th>
+     <td colspan="2">
+         <select id="brandId" class="j-ipt">
+            <option value="0">-请选择-</option>
+         </select>
+     </td>
+  </tr>
+  <tr>
+     <th>商品描述<font color="red">*</font>：</th>
+     <td colspan="2">
+         <div class="ke-container ke-container-default" style="width: 800px;"><div style="display:block;" class="ke-toolbar" unselectable="on"><span class="ke-outline" data-name="source" title="HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="undo" title="后退(Ctrl+Z)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-undo" unselectable="on"></span></span><span class="ke-outline" data-name="redo" title="前进(Ctrl+Y)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-redo" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="preview" title="预览" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-preview" unselectable="on"></span></span><span class="ke-outline" data-name="print" title="打印(Ctrl+P)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-print" unselectable="on"></span></span><span class="ke-outline" data-name="template" title="插入模板" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-template" unselectable="on"></span></span><span class="ke-outline" data-name="code" title="插入程序代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-code" unselectable="on"></span></span><span class="ke-outline" data-name="cut" title="剪切(Ctrl+X)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-cut" unselectable="on"></span></span><span class="ke-outline" data-name="copy" title="复制(Ctrl+C)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-copy" unselectable="on"></span></span><span class="ke-outline" data-name="paste" title="粘贴(Ctrl+V)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-paste" unselectable="on"></span></span><span class="ke-outline" data-name="plainpaste" title="粘贴为无格式文本" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-plainpaste" unselectable="on"></span></span><span class="ke-outline" data-name="wordpaste" title="从Word粘贴" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-wordpaste" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="justifyleft" title="左对齐" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyleft" unselectable="on"></span></span><span class="ke-outline" data-name="justifycenter" title="居中" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifycenter" unselectable="on"></span></span><span class="ke-outline" data-name="justifyright" title="右对齐" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyright" unselectable="on"></span></span><span class="ke-outline" data-name="justifyfull" title="两端对齐" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyfull" unselectable="on"></span></span><span class="ke-outline" data-name="insertorderedlist" title="编号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="insertunorderedlist" title="项目符号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="indent" title="增加缩进" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-indent" unselectable="on"></span></span><span class="ke-outline" data-name="outdent" title="减少缩进" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-outdent" unselectable="on"></span></span><span class="ke-outline" data-name="subscript" title="下标" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-subscript" unselectable="on"></span></span><span class="ke-outline" data-name="superscript" title="上标" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-superscript" unselectable="on"></span></span><span class="ke-outline" data-name="clearhtml" title="清理HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-clearhtml" unselectable="on"></span></span><span class="ke-outline" data-name="quickformat" title="一键排版" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-quickformat" unselectable="on"></span></span><span class="ke-outline" data-name="selectall" title="全选(Ctrl+A)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-selectall" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="fullscreen" title="全屏显示" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fullscreen" unselectable="on"></span></span><div class="ke-hr"></div><span class="ke-outline" data-name="formatblock" title="段落" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-formatblock" unselectable="on"></span></span><span class="ke-outline" data-name="fontname" title="字体" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontname" unselectable="on"></span></span><span class="ke-outline" data-name="fontsize" title="文字大小" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontsize" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="forecolor" title="文字颜色" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-forecolor" unselectable="on"></span></span><span class="ke-outline" data-name="hilitecolor" title="文字背景" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hilitecolor" unselectable="on"></span></span><span class="ke-outline" data-name="bold" title="粗体(Ctrl+B)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold" unselectable="on"></span></span><span class="ke-outline" data-name="italic" title="斜体(Ctrl+I)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic" unselectable="on"></span></span><span class="ke-outline" data-name="underline" title="下划线(Ctrl+U)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline" unselectable="on"></span></span><span class="ke-outline" data-name="strikethrough" title="删除线" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-strikethrough" unselectable="on"></span></span><span class="ke-outline" data-name="lineheight" title="行距" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-lineheight" unselectable="on"></span></span><span class="ke-outline" data-name="removeformat" title="删除格式" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="image" title="图片" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" unselectable="on"></span></span><span class="ke-outline" data-name="multiimage" title="批量图片上传" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-multiimage" unselectable="on"></span></span><span class="ke-outline" data-name="media" title="视音频" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-media" unselectable="on"></span></span><span class="ke-outline" data-name="table" title="表格" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-table" unselectable="on"></span></span><span class="ke-outline" data-name="hr" title="插入横线" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hr" unselectable="on"></span></span><span class="ke-outline" data-name="emoticons" title="插入表情" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-emoticons" unselectable="on"></span></span><span class="ke-outline" data-name="baidumap" title="百度地图" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-baidumap" unselectable="on"></span></span><span class="ke-outline" data-name="pagebreak" title="插入分页符" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-pagebreak" unselectable="on"></span></span><span class="ke-outline" data-name="anchor" title="锚点" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-anchor" unselectable="on"></span></span><span class="ke-outline" data-name="link" title="超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span></span><span class="ke-outline" data-name="unlink" title="取消超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-unlink" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="about" title="关于" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-about" unselectable="on"></span></span></div><div style="display: block; height: 288px;" class="ke-edit"><iframe class="ke-edit-iframe" hidefocus="true" frameborder="0" tabindex="" style="width: 100%; height: 288px;" src="./saved_resource.html"></iframe><textarea class="ke-edit-textarea" hidefocus="true" tabindex="" style="width: 100%; height: 288px; display: none;"></textarea></div><div class="ke-statusbar"><span class="ke-inline-block ke-statusbar-center-icon"></span><span class="ke-inline-block ke-statusbar-right-icon"></span></div></div><textarea rows="2" cols="60" id="goodsDesc" class="j-ipt" name="goodsDesc" data-rule="商品描述:required;" style="display: none;"></textarea>
+     </td>
+  </tr>
+  <tr>
+     <td colspan="3" align="center" style="text-align:center;padding-top:10px;">
+        <button type="button" class="btn btn-primary btn-mright" onclick="javascript:save(1)"><i class="fa fa-check"></i>保&nbsp;存</button>
+        <button type="button" class="btn" onclick="toBack(1,&#39;add&#39;)"><i class="fa fa-angle-double-left"></i>返&nbsp;回</button>
+     </td>
+  </tr>
+</tbody></table>
+        </div>
+        <div class="wst-tab-item" style="position: relative;display:none">
+        <div id="specsAttrBox"></div>
+<div id="specTips" style="display:none">
+<div class="wst-tips-box" style="margin-left:0px;">1.若改动商品规格时，销售规则表将会重新绘制，填写销售规格表前前选择好商品规格</div>
+</div>
+<div id="specBtns" style="margin:0px auto;text-align:center;display:none">
+<button type="button" class="btn btn-primary btn-mright" onclick="javascript:save(1)"><i class="fa fa-check"></i>保&nbsp;存</button>
+<button type="button" class="btn" onclick="toBack(1,&#39;add&#39;)"><i class="fa fa-angle-double-left"></i>返&nbsp;回</button>
+</div>
+        </div>
+        <div class="wst-tab-item" style="position: relative;display:none">
+        <style>
+.wst-batchupload .webuploader-pick{
+    height: 40px;line-height: 40px;
+}
+#filePicker{height: auto;width: auto;}
+</style>
+<div id="batchUpload" class="wst-batchupload">
+    <div class="queueList filled">
+        <div id="dndArea" class="placeholder ">
+            <div id="filePicker"></div>
+            <p>或将照片拖到这里，单次最多可选50张，每张最大不超过5M</p>
+        </div>
+        <ul class="filelist">
+            	    </ul>
+    </div>
+    <div class="statusBar" style="display: none;">
+        <div class="progress" style="display: none;">
+            <span class="text">0%</span>
+            <span class="percentage" style="width: 0%;"></span>
+        </div>
+        <div class="info"></div>
+        <div class="btns">
+            <div id="filePicker2" style="height: auto;"></div><div class="uploadBtn">开始上传</div>
+        </div>
+    </div>
+</div>
+<div style="margin:0px auto;text-align:center;border-top:1px solid #cccccc;padding-top:10px;">
+<button type="button" class="btn btn-primary btn-mright" onclick="javascript:save(1)"><i class="fa fa-check"></i>保&nbsp;存</button>
+<button type="button" class="btn" onclick="toBack(1,&#39;add&#39;)"><i class="fa fa-angle-double-left"></i>返&nbsp;回</button>
+</div>
+
+        </div>
+     </form>
+    </div>
+</div>
+
+<script src="./bootstrap.min.js.下载"></script>
+<script language="javascript" type="text/javascript" src="./layui.all.js.下载"></script>
+<script language="javascript" type="text/javascript" src="./common.js(1).下载"></script>
+<script type="text/javascript" src="./jquery.lazyload.min.js.下载"></script>
+
+<script type="text/javascript" src="./webuploader.js.下载"></script>
+<script src="./kindeditor.js.下载" type="text/javascript"></script>
+<script type="text/javascript" src="./jquery.validator.min.js.下载"></script>
+<script type="text/javascript" src="./batchupload.js.下载"></script>
+<script type="text/javascript" src="./goods.js.下载"></script>
+<script>
+var initBatchUpload = false,editor1 = null,specNum = 0,src='add';
+var OBJ = {"goodsId":0,"goodsSn":"156101601567507","productNo":"156101601567509","goodsName":null,"goodsImg":null,"shopId":null,"goodsType":"0","marketPrice":"0.00","shopPrice":"0.00","warnStock":"0","goodsStock":"0","goodsUnit":null,"goodsTips":null,"isSale":"1","isBest":"0","isHot":"0","isNew":"0","isRecom":"0","goodsCatIdPath":null,"goodsCatId":null,"shopCatId1":null,"shopCatId2":null,"brandId":"0","goodsStatus":"0","saleNum":"0","saleTime":null,"visitNum":"0","appraiseNum":"0","isSpec":"0","gallery":null,"goodsSeoKeywords":null,"illegalRemarks":null,"dataFlag":"1","createTime":null,"isFreeShipping":"0","goodsSerachKeywords":null};
+$(function(){initEdit()});
+</script>
+
+
+</body></html>
